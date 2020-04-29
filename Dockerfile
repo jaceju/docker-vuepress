@@ -1,12 +1,19 @@
+FROM node:alpine AS packages
+
+WORKDIR /
+
+RUN apk add --no-cache git
+
+RUN yarn add vuepress vuepress-plugin-flexsearch
+
 FROM node:alpine
-RUN yarn global add vuepress
 
 VOLUME [ "/vuepress" ]
 
 WORKDIR /vuepress
 
-RUN yarn global add vuepress
-
 EXPOSE 8080
 
-ENTRYPOINT [ "vuepress" ]
+COPY --from=packages /node_modules /vuepress/
+
+ENTRYPOINT [ "/vuepress/node_modules/.bin/vuepress" ]
