@@ -14,6 +14,6 @@ WORKDIR /vuepress
 
 EXPOSE 8080
 
-COPY --from=packages /node_modules /vuepress/
+COPY --from=packages /node_modules /node_modules
 
-ENTRYPOINT [ "/vuepress/node_modules/.bin/vuepress" ]
+ENTRYPOINT [ "/node_modules/.bin/vuepress" ]
