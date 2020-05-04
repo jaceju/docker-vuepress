@@ -4,7 +4,7 @@ WORKDIR /
 
 RUN apk add --no-cache git
 
-RUN yarn add vuepress vuepress-plugin-flexsearch
+RUN yarn add vuepress vuepress-plugin-fulltext-search
 
 FROM node:alpine
 
