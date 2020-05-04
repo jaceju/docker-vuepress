@@ -2,14 +2,28 @@
 
 A Docker Container for [VuePress](https://vuepress.vuejs.org).
 
+Plug-in [vuepress-plugin-fulltext-search](https://github.com/leo-buneev/vuepress-plugin-fulltext-search) is built-in.
+
 ## Usage examples
 
 Read the official [VuePress Documentation](https://vuepress.vuejs.org) first.
 
+Enable the `fulltext-search` plugin in your `docs/.vuepress/config.js` before building or serving:
+
+```json
+// docs/.vuepress/config.js
+module.exports = {
+  // ...
+  plugins: ['fulltext-search'],
+}
+```
+
+And run this command in terminal:
+
 ```bash
 # build
 docker run --rm -v "$PWD:/vuepress" jaceju/vuepress build docs
-# serve
+# or serve
 docker run --rm -d -v "$PWD:/vuepress" -p 8080:8080 jaceju/vuepress dev docs
 ```
 
